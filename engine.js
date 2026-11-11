@@ -11,6 +11,7 @@
   var OPTIMAL_CHANCE = Object.freeze({ easy: 0.2, medium: 0.65, hard: 1 });
 
   function opponent(mark) {
+    
     return mark === 'X' ? 'O' : 'X';
   }
 

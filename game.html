@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0f0f1a" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https://academeforge.in data:; manifest-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'" />
+  <meta name="description" content="Tic Tac Toe by AcademeForge — a free offline game. Play against a friend on the same device or challenge the computer on Easy, Medium or Hard. Stats are saved privately in your browser." />
+  <meta name="keywords" content="Tic Tac Toe, AcademeForge Tic Tac Toe, noughts and crosses, tic tac toe vs computer, two player tic tac toe, offline game, free puzzle game, AF games" />
+  <meta name="author" content="AcademeForge" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://tictactoe.academeforge.in/" />
+
+  <title>Tic Tac Toe — Free Offline Game vs Friend or Computer | AcademeForge</title>
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Tic Tac Toe — AcademeForge" />
+  <meta property="og:title" content="Tic Tac Toe — Free Offline Game | AcademeForge" />
+  <meta property="og:description" content="Play Tic Tac Toe with a friend or against the computer. Free, fast and fully offline." />
+  <meta property="og:url" content="https://tictactoe.academeforge.in/" />
+  <meta property="og:image" content="https://academeforge.in/IMG/og-image.webp" />
+  <meta property="og:image:type" content="image/webp" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Tic Tac Toe by AcademeForge" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@AcademeForge" />
+  <meta name="twitter:title" content="Tic Tac Toe — Free Offline Game | AcademeForge" />
+  <meta name="twitter:description" content="Two players or vs computer. Free and offline. By AcademeForge." />
+  <meta name="twitter:image" content="https://academeforge.in/IMG/og-image.webp" />
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Tic Tac Toe" />
+  <link rel="apple-touch-icon" href="https://academeforge.in/IMG/logo.png" />
+  <link rel="icon" type="image/png" href="https://academeforge.in/IMG/logo.png" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Tic Tac Toe",
+    "alternateName": ["AF Tic Tac Toe", "Tic Tac Toe by AcademeForge"],
+    "operatingSystem": "All",
+    "applicationCategory": "GameApplication",
+    "applicationSubCategory": "Puzzle",
+    "url": "https://tictactoe.academeforge.in/",
+    "logo": "https://academeforge.in/IMG/logo.png",
+    "screenshot": "https://academeforge.in/IMG/og-image.webp",
+    "description": "A free offline Tic Tac Toe game with a two-player mode and a computer bot with three difficulty levels. Progress is stored locally in the browser.",
+    "featureList": [
+      "Two real players on one device",
+      "Computer opponent with Easy, Medium and Hard levels",
+      "Stats and match history saved in your browser",
+      "Works offline",
+      "Completely free, no login required"
+    ],
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "author": { "@type": "Organization", "name": "AcademeForge", "url": "https://academeforge.in/" },
+    "publisher": { "@type": "Organization", "name": "AcademeForge", "url": "https://academeforge.in/" },
+    "inLanguage": "en"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is Tic Tac Toe by AcademeForge free?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. It is completely free and needs no account or login." }
+      },
+      {
+        "@type": "Question",
+        "name": "What game modes are available?",
+        "acceptedAnswer": { "@type": "Answer", "text": "You can play against a friend on the same device, or against the computer on Easy, Medium or Hard difficulty." }
+      },
+      {
+        "@type": "Question",
+        "name": "Where is my progress saved?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Stats are saved only in your browser's local storage. It is an offline game: clearing browser data or uninstalling the app permanently erases your progress and it cannot be restored." }
+      }
+    ]
+  }
+  </script>
+
+  <link rel="stylesheet" href="css/tictactoe.css" />
+  <script src="js/storage.js" defer></script>
+  <script src="js/engine.js" defer></script>
+  <script src="js/app.js" defer></script>
+</head>
+<body>
+<div class="app">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-inner">
+      <div class="logo-group">
+        <div class="logo-mark" aria-hidden="true">AF</div>
+        <div class="logo-text">
+          <div class="name">AcademeForge</div>
+          <div class="sub">Tic Tac Toe</div>
+        </div>
+      </div>
+      <button type="button" class="icon-btn" id="headerAvatarBtn" aria-label="Open my stats">😀</button>
+    </div>
+  </header>
+
+  <div id="storageWarn" class="banner banner-warn" role="alert" hidden>
+    ⚠️ Browser storage is unavailable (private mode or blocked). You can still play, but stats will not be saved.
+  </div>
+
+  <div class="toast-wrap" id="toastWrap" aria-live="polite"></div>
+
+  <main class="main" id="main">
+
+    <!-- HOME -->
+    <section id="homeScreen" class="screen active" aria-labelledby="heroName">
+      <div class="hero">
+        <div class="hero-avatar" id="heroAvatar" aria-hidden="true">😀</div>
+        <div class="hero-eyebrow">❌ Tic Tac Toe ⭕</div>
+        <h1 class="hero-name" id="heroName">Player</h1>
+        <div class="hero-stats">
+          <div class="hero-stat"><div class="hero-stat-val" id="hsPlayed">0</div><div class="hero-stat-lbl">Played</div></div>
+          <div class="hero-stat"><div class="hero-stat-val" id="hsWins">0</div><div class="hero-stat-lbl">Wins</div></div>
+          <div class="hero-stat"><div class="hero-stat-val" id="hsStreak">0</div><div class="hero-stat-lbl">Streak</div></div>
+          <div class="hero-stat"><div class="hero-stat-val" id="hsBest">0</div><div class="hero-stat-lbl">Best</div></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2 class="card-title">Choose a mode</h2>
+        <div class="stack">
+          <button type="button" class="btn btn-pri btn-lg btn-full" id="homeBotBtn">🤖 Play vs Computer</button>
+          <button type="button" class="btn btn-sec btn-lg btn-full" id="homeFriendBtn">👥 Play with a Friend</button>
+        </div>
+      </div>
+
+      <div class="card card-note">
+        <div class="note-ico" aria-hidden="true">💾</div>
+        <div>
+          <div class="note-title">Offline game</div>
+          <p class="note-text">Your stats live only in this browser. Clearing browser data or uninstalling the app erases them for good — there is no way to restore them.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PLAY -->
+    <section id="playScreen" class="screen" aria-label="Play">
+      <div id="setupView">
+        <div class="setup-hero">
+          <h2 class="setup-title">🎮 New Game</h2>
+          <p class="setup-sub">Pick a mode and start playing</p>
+        </div>
+
+        <div class="mode-grid" role="group" aria-label="Game mode">
+          <button type="button" class="mode-card" id="modeBot" data-mode="bot" aria-pressed="false">
+            <span class="mode-ico" aria-hidden="true">🤖</span>
+            <span class="mode-name">vs Computer</span>
+            <span class="mode-desc">Solo practice against a bot</span>
+          </button>
+          <button type="button" class="mode-card" id="modeFriend" data-mode="pvp" aria-pressed="false">
+            <span class="mode-ico" aria-hidden="true">👥</span>
+            <span class="mode-name">1 vs 1</span>
+            <span class="mode-desc">Two players, one device</span>
+          </button>
+        </div>
+
+        <div id="botOptions" class="card" hidden>
+          <div class="field">
+            <div class="field-lbl" id="diffLbl">Difficulty</div>
+            <div class="seg" id="diffGroup" role="group" aria-labelledby="diffLbl"></div>
+            <p class="field-hint" id="diffHint"></p>
+          </div>
+          <div class="field">
+            <div class="field-lbl" id="markLbl">You play as</div>
+            <div class="seg" id="markGroup" role="group" aria-labelledby="markLbl">
+              <button type="button" class="seg-btn" data-mark="X" aria-pressed="true"><span class="mk-x">❌ X</span> (moves first)</button>
+              <button type="button" class="seg-btn" data-mark="O" aria-pressed="false"><span class="mk-o">⭕ O</span></button>
+            </div>
+          </div>
+        </div>
+
+        <div id="friendOptions" class="card" hidden>
+          <div class="field">
+            <label class="field-lbl" for="nameA">Player 1 (❌ X, moves first)</label>
+            <input id="nameA" class="input" type="text" maxlength="16" autocomplete="off" placeholder="Player 1" />
+          </div>
+          <div class="field">
+            <label class="field-lbl" for="nameB">Player 2 (⭕ O)</label>
+            <input id="nameB" class="input" type="text" maxlength="16" autocomplete="off" placeholder="Player 2" />
+          </div>
+          <p class="field-hint">Players swap who goes first after every round.</p>
+        </div>
+
+        <button type="button" class="btn btn-pri btn-lg btn-full" id="startBtn" disabled>🚀 Start Game</button>
+      </div>
+
+      <div id="gameView" hidden>
+        <div class="game-head">
+          <div>
+            <h2 class="game-title" id="gameTitle">Tic Tac Toe</h2>
+            <div class="game-sub" id="gameSubtitle"></div>
+          </div>
+        </div>
+
+        <div class="scoreboard" aria-label="Scoreboard">
+          <div class="score-cell" id="scoreCellA">
+            <div class="score-name" id="scoreNameA">Player 1</div>
+            <div class="score-val" id="scoreA">0</div>
+          </div>
+          <div class="score-cell score-draw">
+            <div class="score-name">Draws</div>
+            <div class="score-val" id="scoreD">0</div>
+          </div>
+          <div class="score-cell" id="scoreCellB">
+            <div class="score-name" id="scoreNameB">Player 2</div>
+            <div class="score-val" id="scoreB">0</div>
+          </div>
+        </div>
+
+        <div class="status" id="statusLine" role="status" aria-live="polite"></div>
+
+        <div class="board-wrap">
+          <div class="board" id="board" role="grid" aria-label="Tic Tac Toe board"></div>
+        </div>
+
+        <div class="game-acts">
+          <button type="button" class="btn btn-pri" id="nextRoundBtn" disabled>▶ Next Round</button>
+          <button type="button" class="btn btn-gho" id="quitBtn">⬅ Quit</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS -->
+    <section id="statsScreen" class="screen" aria-label="My stats">
+      <div class="profile-hero">
+        <div class="avatar-ring" id="statsAvatar" aria-hidden="true">😀</div>
+        <h2 class="profile-name" id="statsName">Player</h2>
+        <div class="profile-sub">Saved only in this browser</div>
+      </div>
+      <div id="statsBody"></div>
+    </section>
+
+    <!-- SETTINGS -->
+    <section id="settingsScreen" class="screen" aria-label="Settings">
+      <div class="sec-lbl">Profile</div>
+      <div class="set-section">
+        <div class="set-row">
+          <div><div class="sr-lbl">Edit Profile</div><div class="sr-sub">Name &amp; avatar</div></div>
+          <button type="button" class="icon-btn" id="editProfileBtn" aria-label="Edit profile">✏️</button>
+        </div>
+        <div class="set-row">
+          <div><div class="sr-lbl" id="darkLbl">Dark Mode</div></div>
+          <button type="button" id="themeToggle" class="toggle" role="switch" aria-checked="true" aria-labelledby="darkLbl"></button>
+        </div>
+        <div class="set-row">
+          <div><div class="sr-lbl">Show Tutorial Again</div></div>
+          <button type="button" class="icon-btn" id="tutorialBtn" aria-label="Show tutorial">❓</button>
+        </div>
+      </div>
+
+      <div class="sec-lbl">Your Data</div>
+      <div class="set-section">
+        <div class="set-row">
+          <div><div class="sr-lbl">Storage</div><div class="sr-sub" id="persistStatus">Checking…</div></div>
+        </div>
+        <div class="set-row">
+          <div>
+            <div class="sr-lbl">Reset All Data</div>
+            <div class="sr-sub">Permanently erases stats &amp; history</div>
+          </div>
+          <button type="button" class="icon-btn" id="resetBtn" aria-label="Reset all data">🗑️</button>
+        </div>
+      </div>
+      <p class="data-warning">⚠️ This is an offline game. Progress is stored only in this browser on this device. If you clear your browser data or uninstall the app, your progress is lost and <strong>cannot be restored</strong>.</p>
+
+      <div class="sec-lbl">About</div>
+      <div class="set-section">
+        <div class="set-row"><div class="sr-lbl">Version</div><span class="sr-val">Tic Tac Toe v1</span></div>
+        <div class="set-row"><div class="sr-lbl">Powered By</div><span class="sr-val">AcademeForge</span></div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- BOTTOM NAV -->
+  <nav class="bottom-nav" aria-label="Primary">
+    <button type="button" class="nav-btn active" data-screen="homeScreen"><span class="nav-icon" aria-hidden="true">🏠</span><span class="nav-text">Home</span></button>
+    <button type="button" class="nav-btn" data-screen="playScreen"><span class="nav-icon" aria-hidden="true">🎮</span><span class="nav-text">Play</span></button>
+    <button type="button" class="nav-btn" data-screen="statsScreen"><span class="nav-icon" aria-hidden="true">📊</span><span class="nav-text">Stats</span></button>
+    <button type="button" class="nav-btn" data-screen="settingsScreen"><span class="nav-icon" aria-hidden="true">⚙️</span><span class="nav-text">More</span></button>
+  </nav>
+</div>
+
+<!-- RESULT MODAL -->
+<div id="resultModal" class="modal" aria-hidden="true">
+  <div class="modal-sheet" role="dialog" aria-modal="true" aria-labelledby="resultTitle">
+    <div class="modal-handle"></div>
+    <div class="modal-ico" id="resultIcon">🎉</div>
+    <h2 class="modal-ttl" id="resultTitle">Result</h2>
+    <p class="modal-body" id="resultBody"></p>
+    <div class="modal-acts">
+      <button type="button" class="btn btn-pri" id="resultAgain" data-autofocus>▶ Next Round</button>
+      <button type="button" class="btn btn-gho" id="resultClose">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- CONFIRM MODAL -->
+<div id="confirmModal" class="modal" aria-hidden="true">
+  <div class="modal-sheet" role="dialog" aria-modal="true" aria-labelledby="confirmTitle">
+    <div class="modal-handle"></div>
+    <div class="modal-ico" id="confirmIcon">⚠️</div>
+    <h2 class="modal-ttl" id="confirmTitle">Are you sure?</h2>
+    <p class="modal-body" id="confirmMsg">This cannot be undone.</p>
+    <div class="modal-acts">
+      <button type="button" class="btn btn-dan" id="confirmOk">Confirm</button>
+      <button type="button" class="btn btn-gho" id="confirmCancel" data-autofocus>Cancel</button>
+    </div>
+  </div>
+</div>
+
+<!-- PROFILE MODAL -->
+<div id="profileModal" class="modal" aria-hidden="true">
+  <div class="modal-sheet modal-scroll" role="dialog" aria-modal="true" aria-labelledby="profileTitle">
+    <div class="modal-handle"></div>
+    <h2 class="modal-ttl" id="profileTitle">Edit Profile ✏️</h2>
+    <div class="field">
+      <label class="field-lbl" for="editUsername">Username</label>
+      <input id="editUsername" class="input" type="text" maxlength="16" autocomplete="off" placeholder="Your display name" data-autofocus />
+    </div>
+    <div class="field">
+      <div class="field-lbl" id="avatarLbl">Avatar</div>
+      <div class="avatar-grid" id="editAvatarGrid" role="group" aria-labelledby="avatarLbl"></div>
+    </div>
+    <div class="modal-acts">
+      <button type="button" class="btn btn-gho" id="profileCancel">Cancel</button>
+      <button type="button" class="btn btn-pri" id="profileSave">Save</button>
+    </div>
+  </div>
+</div>
+
+<!-- ONBOARDING MODAL -->
+<div id="onboardModal" class="modal" aria-hidden="true" data-locked="true">
+  <div class="modal-sheet" role="dialog" aria-modal="true" aria-labelledby="obTitle">
+    <div class="modal-handle"></div>
+    <div class="ob-dots" id="obDots" aria-hidden="true"></div>
+    <div class="ob-ico" id="obIco" aria-hidden="true"></div>
+    <h2 class="ob-title" id="obTitle"></h2>
+    <p class="ob-desc" id="obDesc"></p>
+    <div class="ob-warn" id="obWarn" hidden></div>
+    <div class="modal-acts">
+      <button type="button" class="btn btn-gho" id="obSkip">Skip</button>
+      <button type="button" class="btn btn-pri" id="obNext" data-autofocus>Next →</button>
+    </div>
+  </div>
+</div>
+
+<noscript><p style="padding:24px;font-family:sans-serif">Tic Tac Toe needs JavaScript to run. Please enable it and reload.</p></noscript>
+</body>
+</html>
